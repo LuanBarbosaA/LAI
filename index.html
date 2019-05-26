@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="white nav-extended">
+            <div class="nav-wrapper">
+                <a href="#" data-target="slide-out" class="sidenav-trigger teal-text lighten-1"><i class="material-icons">menu</i></a>
+            </div>
+            <div class="nav-content">
+                <ul class="tabs tabs-transparent">
+                    <li id="vendas" class="tab"><a class="active teal-text lighten-1" href="#test1">Vendas</a></li>
+                    <li id="cancelar" class="tab"><a class="teal-text lighten-1" href="#test2">Cancelamento</a></li>
+                </ul>
+            </div>
+        </nav>
+        <ul id="slide-out" class="sidenav">
+            <li><a class="waves-effect" href="#!">Vendas / Cancelamento</a></li>
+            <li><div class="divider"></div></li>
+            <li><a class="waves-effect" href="#!">Resumo</a></li>
+            <li><div class="divider"></div></li>
+            <li><a class="waves-effect" href="#!">Estoque</a></li>
+        </ul>
+    </header>  
+    <div>
+        <main>
+            <iframe id="iframe" src="vendas.html" frameborder="0"></iframe>
+            <!-- <div id="divPrincipal" class="container">
+                <div class="row center">
+                    <label>Produto</label>
+                </div>
+                <div class="row">
+                    <select name="" id="">
+                        <option value="#" disabled selected>Escolha um produto</option>
+                        <option value="#">Produto 1</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <div class="col s4 m3"><label class="col-4">Quantidade</label></div>
+                    <div class="col s2 m1"><button class="teal lighten-1 waves-effect waves-light btn-floating"><i class="material-icons">remove</i></button></div>
+                    <div class="col s4 m7"><input type="number"></div>
+                    <div class="col s2 m1"><button class="teal lighten-1 waves-effect waves-light btn-floating"><i class="material-icons">add</i></button></div>
+                </div>
+                <div class="row center">
+                    <label>Forma de pagamento</label>
+                </div>
+                <div class="row">
+                    <select name="" id="">
+                        <option value="#" disabled selected>Escolha uma forma de pagamento</option>
+                        <option value="cartao">Cartão</option>
+                        <option value="dinheiro">Dinheiro</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <div class="col s4 m4 l2"><label>Desconto</label></div>
+                    <div class="col s8 m8 l10"><input type="number"></div>
+                </div>
+            </div> -->
+        </main>
+    </div>
+    
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.sidenav').sidenav();
+            $('.tabs').tabs();
+            $('select').formSelect();
+        });
+        $('#vendas').click(function(){
+            $('#iframe').attr("src", 'vendas.html');
+            // $('#divPrincipal').empty();
+            // $('#divPrincipal').append("");
+        });
+        $('#cancelar').click(function(){
+            $('#iframe').attr("src", "cancelar.html");
+            // $('#divPrincipal').empty();
+            // $('#divPrincipal').append("<h2>teste</h2>");
+        });
+    </script>
+</body>
+</html>
