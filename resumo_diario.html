@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LPI</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="collection">
+        <div class="collection-item"><span class="new badge">****</span>Valor Bruto</div>
+        <div class="collection-item"><span class="new badge">****</span>Valor Liquido</div>
+        <div class="collection-item"><span class="new badge">****</span>Lucro</div>
+        <div class="collection-item"><span class="new badge">****</span>Gastos</div>
+        <div class="collection-item"><span class="new badge">****</span>Valor dos Impostos</div>
+        <div class="collection-item"><span class="new badge">****</span>Valor em Dinheiro</div>
+        <div class="collection-item"><span class="new badge">****</span>Valor em Cartão</div>
+    </div>
+    <footer>
+        <button class="btn"><i class="material-icons">delete_forever</i>Fechar Caixa</button>
+    </footer>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.sidenav').sidenav();
+            $('.tabs').tabs();
+            $('select').formSelect();
+        });
+    </script>
+</body>
+</html>

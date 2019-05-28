@@ -1,11 +1,27 @@
+button.btn{
+    display: inline-flex;
+    justify-content: center;
+}
+nav{
+    background-color: unset;
+}
+nav .input-field label i {
+    color: unset;
+}
+nav .input-field label.active i {
+    color: unset;
+}
+span.badge.new::after {
+    content: none;
+}
 iframe{
     position: fixed;
     width: 100%;
-    height: 100%;
+    height: 80%;
 }
 footer{
-    /* position: fixed; */
-    /* bottom: 0%; */
+    position: fixed;
+    bottom: 0%;
     width: 100%;
 }
 footer button{
@@ -27,6 +43,13 @@ label{
 .container{
     margin-top: 20px;
 }
+.page-footer{
+    background-color: unset;
+}
+.input-field input[type=search] ~ .material-icons{
+    color: #9e9e9e;
+}
+
 @media only screen and (min-width: 993px){
     nav a.sidenav-trigger{
         display: block;
@@ -46,3 +69,4 @@ label{
         flex-grow: 1;
     }
 }
+

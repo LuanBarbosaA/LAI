@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>LPI</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection">
     <link rel="stylesheet" href="css/style.css">
@@ -18,53 +18,22 @@
             </div>
             <div class="nav-content">
                 <ul class="tabs tabs-transparent">
-                    <li id="vendas" class="tab"><a class="active teal-text lighten-1" href="#test1">Vendas</a></li>
-                    <li id="cancelar" class="tab"><a class="teal-text lighten-1" href="#test2">Cancelamento</a></li>
+                    <li class="tab"><a id="tab1" class='active teal-text lighten-1' href='#test1'>Vendas</a></li>
+                    <li class="tab"><a id="tab2" class='active teal-text lighten-1' href='#test1'>Cancelar</a></li>
                 </ul>
             </div>
         </nav>
         <ul id="slide-out" class="sidenav">
-            <li><a class="waves-effect" href="#!">Vendas / Cancelamento</a></li>
+            <li id="vendas"><a class="waves-effect" href="#!">Vendas / Cancelamento</a></li>
             <li><div class="divider"></div></li>
-            <li><a class="waves-effect" href="#!">Resumo</a></li>
+            <li id="resumo"><a class="waves-effect" href="#!">Resumo</a></li>
             <li><div class="divider"></div></li>
-            <li><a class="waves-effect" href="#!">Estoque</a></li>
+            <li id="estoque"><a class="waves-effect" href="#!">Estoque</a></li>
         </ul>
     </header>  
     <div>
         <main>
             <iframe id="iframe" src="vendas.html" frameborder="0"></iframe>
-            <!-- <div id="divPrincipal" class="container">
-                <div class="row center">
-                    <label>Produto</label>
-                </div>
-                <div class="row">
-                    <select name="" id="">
-                        <option value="#" disabled selected>Escolha um produto</option>
-                        <option value="#">Produto 1</option>
-                    </select>
-                </div>
-                <div class="row">
-                    <div class="col s4 m3"><label class="col-4">Quantidade</label></div>
-                    <div class="col s2 m1"><button class="teal lighten-1 waves-effect waves-light btn-floating"><i class="material-icons">remove</i></button></div>
-                    <div class="col s4 m7"><input type="number"></div>
-                    <div class="col s2 m1"><button class="teal lighten-1 waves-effect waves-light btn-floating"><i class="material-icons">add</i></button></div>
-                </div>
-                <div class="row center">
-                    <label>Forma de pagamento</label>
-                </div>
-                <div class="row">
-                    <select name="" id="">
-                        <option value="#" disabled selected>Escolha uma forma de pagamento</option>
-                        <option value="cartao">Cartão</option>
-                        <option value="dinheiro">Dinheiro</option>
-                    </select>
-                </div>
-                <div class="row">
-                    <div class="col s4 m4 l2"><label>Desconto</label></div>
-                    <div class="col s8 m8 l10"><input type="number"></div>
-                </div>
-            </div> -->
         </main>
     </div>
     
@@ -76,17 +45,68 @@
             $('.sidenav').sidenav();
             $('.tabs').tabs();
             $('select').formSelect();
+            //iframe();
+            var height_page = $(document).height();
+            var height_header = $('header').height();
+            $('#iframe').height(height_page - height_header);
+            $(window).resize(function(){
+                var height_page = $(document).height();
+                var height_header = $('header').height();
+                $('#iframe').height(height_page - height_header);
+            });
+            //$(window).resize(iframe());
         });
-        $('#vendas').click(function(){
-            $('#iframe').attr("src", 'vendas.html');
-            // $('#divPrincipal').empty();
-            // $('#divPrincipal').append("");
+        $('#tab1').click(function(){
+            if(url()=="vendas.html"||url()=="cancelar.html"){
+                $('#iframe').attr("src", 'vendas.html');
+            }else if(url()=="resumo_diario.html"||url()=="resumo_mensal.html"){
+                $('#iframe').attr("src", 'resumo_diario.html');
+            }else if(url()=="estoque_cadastro.html"||url()=="estoque_entrada.html"){
+                $('#iframe').attr("src", 'estoque_cadastro.html');
+            }
         });
-        $('#cancelar').click(function(){
-            $('#iframe').attr("src", "cancelar.html");
-            // $('#divPrincipal').empty();
-            // $('#divPrincipal').append("<h2>teste</h2>");
+        $('#tab2').click(function(){
+            if(url()=="vendas.html"||url()=="cancelar.html"){
+                $('#iframe').attr("src", 'cancelar.html');
+            }else if(url()=="resumo_diario.html"||url()=="resumo_mensal.html"){
+                $('#iframe').attr("src", 'resumo_mensal.html');
+            }else if(url()=="estoque_cadastro.html"||url()=="estoque_entrada.html"){
+                $('#iframe').attr("src", 'estoque_entrada.html');
+            }
         });
+        $("#vendas").click(function(){
+            $("#iframe").attr("src", "vendas.html");
+            mudarTab();
+        });
+        $("#resumo").click(function(){
+            $("#iframe").attr("src", "resumo_diario.html");
+            mudarTab();
+        });
+        $("#estoque").click(function(){
+            $("#iframe").attr("src", "estoque_cadastro.html");
+            mudarTab();
+        })
+        function url(){
+            var url = $("#iframe").attr("src");
+            return url;
+        }
+        function mudarTab(){
+            if(url()=="vendas.html"||url()=="cancelar.html"){
+                $('#tab1').text("Vendas");
+                $('#tab2').text("Cancelar");
+            }else if(url()=="resumo_diario.html"||url()=="resumo_mensal.html"){
+                $('#tab1').text("Diario");
+                $('#tab2').text("Mensal");
+            }else if(url()=="estoque_cadastro.html"||url()=="estoque_entrada.html"){
+                $('#tab1').text("Cadastro");
+                $('#tab2').text("Entrada");
+            }
+        }
+        function iframe(){
+            var height_page = $(document).height();
+            var height_header = $('header').height();
+            $('#iframe').height(height_page - height_header);
+        }
     </script>
 </body>
 </html>
